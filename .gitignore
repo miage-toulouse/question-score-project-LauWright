@@ -2,3 +2,4 @@ question-score.iml
 target
 .idea
 *.iml
+/nbproject/

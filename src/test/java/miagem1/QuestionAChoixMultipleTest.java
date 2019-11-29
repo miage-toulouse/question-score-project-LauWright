@@ -18,7 +18,7 @@ public class QuestionAChoixMultipleTest {
         List<Integer> indicesBonnesReponses = new ArrayList<>();
         indicesBonnesReponses.add(1);
         indicesBonnesReponses.add(2);
-        this.question = new QuestionAChoixMultiple("L'année 2016 est une année bissextile. 1. Vrai, 2. Faux 3.lala 4.lili", indicesBonnesReponses);
+        this.question = new QuestionAChoixMultiple("L'année 2016 est une année bissextile. 1. Vrai, 2. Faux 3.lala 4.lili", indicesBonnesReponses, 5);
     }
 
     @Test

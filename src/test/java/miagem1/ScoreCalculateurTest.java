@@ -20,7 +20,7 @@ public class ScoreCalculateurTest {
         List<Integer> indicesBonnesReponses = new ArrayList<>();
         indicesBonnesReponses.add(1);
         indicesBonnesReponses.add(2);
-        this.questionAChoixMultiple = new QuestionAChoixMultiple("q1",new ArrayList<Integer>(Arrays.asList(2,3,5)));
+        this.questionAChoixMultiple = new QuestionAChoixMultiple("q1",new ArrayList<Integer>(Arrays.asList(2,3,5)), 5);
         this.calculateur = new ScoreCalculateur();
     }
 
@@ -45,7 +45,7 @@ public class ScoreCalculateurTest {
         //then : le score obtenu est 100
         assertEquals(Math.round(new Float(100f/3)*2* 100.0)/100.0, resScore1, 0.01);
 
-        //when : un étudiant fourni certains bons indices
+        //when : un étudiant fourni tous les bons indices
         List<Integer> indicesBonnesReponsesEtudiant1 = new ArrayList<>();
         indicesBonnesReponsesEtudiant1.add(2);
         indicesBonnesReponsesEtudiant1.add(3);
@@ -54,5 +54,20 @@ public class ScoreCalculateurTest {
         Float resScore2 = this.calculateur.calculeScore(indicesBonnesReponsesEtudiant1, this.questionAChoixMultiple);
         //then : le score obtenu est 66,66
         assertEquals(Math.round(new Float(100f)* 100.0)/100.0, resScore2, 0.01);
+
+
+        //when : un étudiant fourni les indices 1, 2, 3, 4 et 5
+        List<Integer> indicesBonnesReponsesEtudiant2 = new ArrayList<Integer>(Arrays.asList(1,2,3,4,5));
+        //and : on demande le calcul du score
+        Float resScore3 = this.calculateur.calculeScore(indicesBonnesReponsesEtudiant2, this.questionAChoixMultiple);
+        //then : le score obtenu est 0
+        assertEquals(new Float(0f), resScore3);
+
+        //when : un étudiant fourni tous les bons indices
+        List<Integer> indicesBonnesReponsesEtudiant3 = new ArrayList<Integer>(Arrays.asList(1,2,3));
+        //and : on demande le calcul du score
+        Float resScore4 = this.calculateur.calculeScore(indicesBonnesReponsesEtudiant3, this.questionAChoixMultiple);
+        //then : le score obtenu est 0
+        assertEquals(new Float(16.66), resScore4, 0.01);
     }
 }

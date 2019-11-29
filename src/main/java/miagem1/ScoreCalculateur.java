@@ -17,7 +17,11 @@ public class ScoreCalculateur {
         for (int indice:indicesReponseEtudiant) {
             score += question.getScoreForIndice(indice);
         }
-        return score;
+        if(score < 0) {
+            return 0;
+        } else {
+            return score;
+        }
     }
 
 

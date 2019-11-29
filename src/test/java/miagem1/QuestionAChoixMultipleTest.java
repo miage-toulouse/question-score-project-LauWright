@@ -14,7 +14,7 @@ public class QuestionAChoixMultipleTest {
 
     @Before
     public void setUp() throws Exception {
-        // given : un objet de type QuestionAChoixExclusif
+        // given : un objet de type QuestionAChoixMultiple
         List<Integer> indicesBonnesReponses = new ArrayList<>();
         indicesBonnesReponses.add(1);
         indicesBonnesReponses.add(2);
